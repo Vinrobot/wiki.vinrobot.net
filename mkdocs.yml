@@ -1,0 +1,6 @@
+site_name: Wiki
+site_url: https://wiki.vinrobot.net
+repo_url: https://github.com/Vinrobot/wiki.vinrobot.net
+
+theme:
+  name: readthedocs
