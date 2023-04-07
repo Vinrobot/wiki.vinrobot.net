@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/Linux/pxe-centos/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Install a complete PXE server - Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Install a complete PXE server";
+        var mkdocs_page_input_path = "Operating-Systems/Linux/pxe-centos.md";
+        var mkdocs_page_url = "/Operating-Systems/Linux/pxe-centos/";
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Baremetal/rpi/">Baremetal on Raspberry Pi</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Docker/crossbuild/">Build multi-arch Docker images</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Linux</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Install a complete PXE server</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#install-dhcp-server">Install DHCP-Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-dhcp-server-12">Setup DHCP-Server (1/2)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-dhcp-server-22">Setup DHCP-Server (2/2)</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../macOS/launchd/">Launchd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../macOS/homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Operating Systems &raquo;</li>
+          <li>Linux &raquo;</li>
+      <li>Install a complete PXE server</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/Linux/pxe-centos.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="configure-dhcp">Configure DHCP</h1>
+<p>Source: <a href="https://www.server-world.info/en/note?os=CentOS_8&amp;p=pxe">CentOS 8 : PXE Boot</a>
+Subnet: 192.168.20.0/24</p>
+<h2 id="install-dhcp-server">Install DHCP-Server</h2>
+<pre><code># dnf -y install dhcp-server
+</code></pre>
+<h2 id="setup-dhcp-server-12">Setup DHCP-Server (1/2)</h2>
+<p>Setup a simple DHCP server and tests it.</p>
+<pre><code># cat /etc/dhcp/dhcpd.conf
+option domain-name &quot;vr.local&quot;;
+option domain-name-servers 192.168.20.2;
+default-lease-time 600;
+max-lease-time 7200;
+authoritative;
+
+subnet 192.168.20.0 netmask 255.255.255.0 {
+    range dynamic-bootp 192.168.20.200 192.168.20.254;
+    option broadcast-address 192.168.20.255;
+    option routers 192.168.20.2;
+}
+</code></pre>
+<pre><code># systemctl enable --now dhcpd
+</code></pre>
+<h2 id="setup-dhcp-server-22">Setup DHCP-Server (2/2)</h2>
+<p>Add the PXE configuration to the DHCP.</p>
+<pre><code># cat /etc/dhcp/dhcpd.conf
+...
+option space pxelinux;
+option pxelinux.magic code 208 = string;
+option pxelinux.configfile code 209 = text;
+option pxelinux.pathprefix code 210 = text;
+option pxelinux.reboottime code 211 = unsigned integer 32;
+option architecture-type code 93 = unsigned integer 16;
+
+subnet 192.168.20.0 netmask 255.255.255.0 {
+    ...
+
+    class &quot;pxeclients&quot; {
+        match if substring (option vendor-class-identifier, 0, 9) = &quot;PXEClient&quot;;
+        next-server 192.168.20.50;
+
+        if option architecture-type = 00:07 {
+            filename &quot;BOOTX64.EFI&quot;;
+        } else {
+            filename &quot;syslinux/pxelinux.0&quot;;
+        }
+    }
+}
+</code></pre>
+<pre><code># systemctl restart dhcpd
+</code></pre>
+<h1 id="configure-tftp">Configure TFTP</h1>
+<h2 id="install-tftp-server">Install TFTP-Server</h2>
+<pre><code># dnf -y install tftp-server
+# systemctl enable --now tftp.socket
+# firewall-cmd --add-service=tftp --permanent
+# firewall-cmd --reload
+</code></pre>
+<h2 id="configure-syslinux">Configure SYSLINUX</h2>
+<p>Configure the SYSLINUX bootloader.</p>
+<pre><code># dnf -y install syslinux
+# mkdir /var/lib/tftpboot/syslinux
+# cp /usr/share/syslinux/{pxelinux.0,menu.c32,vesamenu.c32,ldlinux.c32,libcom32.c32,libutil.c32} /var/lib/tftpboot/syslinux/
+# mkdir /var/lib/tftpboot/syslinux/pxelinux.cfg
+</code></pre>
+<pre><code># cat /var/lib/tftpboot/syslinux/pxelinux.cfg/default
+default vesamenu.c32
+prompt 1
+timeout 60
+
+display boot.msg
+
+label local
+  menu label Boot from ^local drive
+  localboot 0xffff
+</code></pre>
+<p>Older versions:
+- <a href="https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/">SYSLINUX official releases</a>
+- <a href="https://rpmfind.net/linux/rpm2html/search.php?query=syslinux&amp;system=dag&amp;arch=x86_64">SYSLINUX RPM packages</a></p>
+<h2 id="configure-grub2-wip">Configure GRUB2 (WIP)</h2>
+<ul>
+<li><a href="https://docs.oracle.com/cd/E64076_01/E64078/html/vmiug-appendix-pxe-boot.html#vmiug-install-pxe-uefi-setup">https://docs.oracle.com/cd/E64076_01/E64078/html/vmiug-appendix-pxe-boot.html#vmiug-install-pxe-uefi-setup</a></li>
+<li><a href="https://xenappblog.com/2018/automatically-install-vmware-esxi-6-7/">https://xenappblog.com/2018/automatically-install-vmware-esxi-6-7/</a></li>
+<li><a href="https://www.server-world.info/en/note?os=CentOS_8&amp;p=pxe&amp;f=3">https://www.server-world.info/en/note?os=CentOS_8&amp;p=pxe&amp;f=3</a></li>
+<li><a href="http://www.manobit.com/pxe-multi-boot-server-using-grub2-on-mikrotik-routeros-bios-and-efi-support/#BIOSUEFI">http://www.manobit.com/pxe-multi-boot-server-using-grub2-on-mikrotik-routeros-bios-and-efi-support/#BIOSUEFI</a></li>
+<li><a href="https://docs.oracle.com/cd/E64076_01/E64078/html/vmiug-appendix-pxe-boot.html">https://docs.oracle.com/cd/E64076_01/E64078/html/vmiug-appendix-pxe-boot.html</a></li>
+<li><a href="https://communities.vmware.com/thread/520508">https://communities.vmware.com/thread/520508</a></li>
+</ul>
+<h2 id="configure-ipxe-wip">Configure iPXE (WIP)</h2>
+<ul>
+<li><a href="https://ipxe.org/howto/chainloading">https://ipxe.org/howto/chainloading</a></li>
+<li><a href="https://ipxe.org/cfg/platform">https://ipxe.org/cfg/platform</a></li>
+<li><a href="https://gist.github.com/nemf/3794614">https://gist.github.com/nemf/3794614</a></li>
+<li><a href="https://gist.github.com/robinsmidsrod/08105908079357b2dab5">https://gist.github.com/robinsmidsrod/08105908079357b2dab5</a></li>
+<li><a href="https://forum.ipxe.org/showthread.php?tid=1123">https://forum.ipxe.org/showthread.php?tid=1123</a></li>
+</ul>
+<h1 id="add-systems">Add systems</h1>
+<h2 id="centos-8">CentOS 8</h2>
+<p>Mount CentOS 8 ISO:</p>
+<pre><code># cat /etc/fstab
+...
+/var/iso/CentOS-8.1.1911-x86_64-dvd1.iso /mnt/centos8 iso9660 loop,ro 0 0
+
+# mkdir /var/lib/tftpboot/centos8 /mnt/centos8
+# mount -a
+# cp /mnt/centos8/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/centos8/
+</code></pre>
+<p>Add menus to SYSLINUX:</p>
+<pre><code># cat /var/lib/tftpboot/syslinux/pxelinux.cfg/default
+...
+
+label linux
+  menu label ^Install CentOS 8
+  menu default
+  kernel centos8/vmlinuz
+  append initrd=centos8/initrd.img ip=dhcp inst.repo=http://192.168.20.50/centos8
+label vesa
+  menu label Install CentOS 8 with ^basic video driver
+  kernel centos8/vmlinuz
+  append initrd=centos8/initrd.img ip=dhcp inst.xdriver=vesa nomodeset inst.repo=http://192.168.20.50/centos8
+label rescue
+  menu label ^Rescue installed system
+  kernel centos8/vmlinuz
+  append initrd=centos8/initrd.img rescue
+
+label local
+  ...
+</code></pre>
+<p>Provide image files through Apache:</p>
+<pre><code># cat /etc/httpd/conf.d/pxeboot.conf
+...
+Alias /centos8 /mnt/centos8
+&lt;Directory /mnt/centos8&gt;
+    Options Indexes FollowSymLinks
+    Require ip 127.0.0.1 192.168.20.0/24
+&lt;/Directory&gt;
+...
+</code></pre>
+<h2 id="vmware-esxi-60">VMware ESXi 6.0</h2>
+<p>Source: <a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/vsphere-esxi-vcenter-server-60-pxe-boot-esxi.pdf">Installing ESXi Using PXE</a>
+Tested SYSLINUX versions: 3.86, 4.07 (with gpxelinux.0)</p>
+<hr />
+<p>Mount VMware ESXi 6.0 ISO:</p>
+<pre><code># cat /etc/fstab
+...
+/var/iso/VMware-ESXi-6.0.0.iso /mnt/vmware-esxi-6 iso9660 loop,ro 0 0
+
+# mkdir /var/lib/tftpboot/vmware-esxi-6 /mnt/vmware-esxi-6
+# mount -a
+# cp /mnt/vmware-esxi-6/{mboot.c32,boot.cfg} /var/lib/tftpboot/vmware-esxi-6/
+# vim /var/lib/tftpboot/vmware-esxi-6u3-hpe/boot.cfg
+Set prefix=http://192.168.20.50/vmware-esxi-6/
+And remove &quot;/&quot; from kernel and modules
+</code></pre>
+<p>Add menus to SYSLINUX:</p>
+<pre><code># cat /var/lib/tftpboot/syslinux/pxelinux.cfg/default
+...
+
+label vwareesxi6
+  menu label Install VMware ESXi 6.0
+  kernel vmware-esxi-6/mboot.c32
+  append -c vmware-esxi-6/boot.cfg
+  ipappend 2
+
+label local
+  ...
+</code></pre>
+<p>Provide image files through Apache:</p>
+<pre><code># cat /etc/httpd/conf.d/pxeboot.conf
+...
+Alias /vmware-esxi-6 /mnt/vmware-esxi-6
+&lt;Directory /mnt/vmware-esxi-6&gt;
+    Options Indexes FollowSymLinks
+    Require ip 127.0.0.1 192.168.20.0/24
+&lt;/Directory&gt;
+...
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../docker-centos/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../VMware/esxi-installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

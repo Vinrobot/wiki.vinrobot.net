@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Docker/crossbuild/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Build multi-arch Docker images - Wiki</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Build multi-arch Docker images";
+        var mkdocs_page_input_path = "Docker/crossbuild.md";
+        var mkdocs_page_url = "/Docker/crossbuild/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Baremetal/rpi/">Baremetal on Raspberry Pi</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Build multi-arch Docker images</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Linux/docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Linux/pxe-centos/">Install a complete PXE server</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/macOS/launchd/">Launchd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Operating-Systems/macOS/homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Docker &raquo;</li>
+      <li>Build multi-arch Docker images</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Docker/crossbuild.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Source:
+- <a href="https://mirailabs.io/blog/multiarch-docker-with-buildx/">https://mirailabs.io/blog/multiarch-docker-with-buildx/</a>
+- <a href="https://docs.docker.com/buildx/working-with-buildx/">https://docs.docker.com/buildx/working-with-buildx/</a></p>
+<h2 id="enable-buildx">Enable buildx</h2>
+<pre><code class="language-shell">$ export DOCKER_CLI_EXPERIMENTAL=enabled
+$ docker buildx version
+github.com/docker/buildx v0.3.1-tp-docker 6db68d029599c6710a32aa7adcba8e5a344795a7
+</code></pre>
+<h2 id="enable-binfmt-linux-only">Enable binfmt (Linux only)</h2>
+<pre><code class="language-shell">$ docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+$ ls -al /proc/sys/fs/binfmt_misc/
+total 0
+drwxr-xr-x. 2 root root 0 May 17 19:49 .
+dr-xr-xr-x. 1 root root 0 May 17 19:38 ..
+-rw-r--r--. 1 root root 0 May 17 19:49 qemu-aarch64
+-rw-r--r--. 1 root root 0 May 17 19:49 qemu-arm
+-rw-r--r--. 1 root root 0 May 17 19:49 qemu-ppc64le
+-rw-r--r--. 1 root root 0 May 17 19:49 qemu-riscv64
+-rw-r--r--. 1 root root 0 May 17 19:49 qemu-s390x
+--w-------. 1 root root 0 May 17 19:49 register
+-rw-r--r--. 1 root root 0 May 17 19:49 status
+$ cat /proc/sys/fs/binfmt_misc/qemu-aarch64
+enabled
+interpreter /usr/bin/qemu-aarch64
+flags: OCF
+offset 0
+magic 7f454c460201010000000000000000000200b7
+mask ffffffffffffff00fffffffffffffffffeffff
+</code></pre>
+<h2 id="create-the-multi-arch-builder">Create the multi-arch builder</h2>
+<pre><code class="language-shell">$ docker buildx ls
+NAME/NODE DRIVER/ENDPOINT STATUS  PLATFORMS
+default * docker
+  default default         running linux/amd64, linux/386
+$ docker buildx create --use --name cross-builder
+cross-builder
+$ docker buildx ls
+NAME/NODE        DRIVER/ENDPOINT             STATUS   PLATFORMS
+cross-builder *  docker-container
+  cross-builder0 unix:///var/run/docker.sock inactive
+default          docker
+  default        default                     running  linux/amd64, linux/38
+</code></pre>
+<h2 id="tests">Tests</h2>
+<p>1) Create a Go file</p>
+<pre><code class="language-go">$ cat hello.go
+package main
+
+import (
+        &quot;fmt&quot;
+        &quot;runtime&quot;
+)
+
+func main() {
+        fmt.Printf(&quot;Hello, %s!\n&quot;, runtime.GOARCH)
+}
+</code></pre>
+<p>2) Create a Dockerfile</p>
+<pre><code class="language-dockerfile">FROM golang:alpine AS builder
+RUN mkdir /app
+ADD . /app/
+WORKDIR /app
+RUN go build -o hello .
+
+FROM alpine
+RUN mkdir /app
+WORKDIR /app
+COPY --from=builder /app/hello .
+CMD [&quot;./hello&quot;]
+</code></pre>
+<p>3) Build using buildx</p>
+<pre><code class="language-shell">$ docker buildx build -t hello-multi-arch --platform=linux/arm,linux/arm64,linux/amd64,windows/amd64 .
+</code></pre>
+<h2 id="set-the-default-builder-to-buildx">Set the default builder to buildx</h2>
+<p><a href="https://docs.docker.com/buildx/working-with-buildx/#set-buildx-as-the-default-builder">https://docs.docker.com/buildx/working-with-buildx/#set-buildx-as-the-default-builder</a></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../Baremetal/rpi/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../FFmpeg/remove-segments/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

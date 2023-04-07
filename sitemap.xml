@@ -5,4 +5,54 @@
          <lastmod>2023-04-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/links/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Baremetal/rpi/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Docker/crossbuild/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/FFmpeg/remove-segments/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/Linux/docker-centos/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/Linux/pxe-centos/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/VMware/esxi-installation/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/Windows/oem-product-key/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/macOS/launchd/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.vinrobot.net/Operating-Systems/macOS/homebrew/bundle/</loc>
+         <lastmod>2023-04-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/macOS/launchd/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Launchd - Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Launchd";
+        var mkdocs_page_input_path = "Operating-Systems/macOS/launchd.md";
+        var mkdocs_page_url = "/Operating-Systems/macOS/launchd/";
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Baremetal/rpi/">Baremetal on Raspberry Pi</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Docker/crossbuild/">Build multi-arch Docker images</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Linux/docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Linux/pxe-centos/">Install a complete PXE server</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">macOS</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Launchd</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Operating Systems &raquo;</li>
+          <li>macOS &raquo;</li>
+      <li>Launchd</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/macOS/launchd.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="job-definitions">Job Definitions</h1>
+<p>Job definitions crucial for the operation of the operating system are stored below /System/Library. You should never need to create a daemon or agent in these directories.</p>
+<p>Third-Party definitions which are relevant for every user are stored below /Library. Job definitions for a specific user are stored below the respective user's Library directory.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Location</th>
+<th>Run on behalf of</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Agents</td>
+<td>~/Library/LaunchAgents</td>
+<td>Currently logged in user</td>
+</tr>
+<tr>
+<td>Global Agents</td>
+<td>/Library/LaunchAgents</td>
+<td>Currently logged in user</td>
+</tr>
+<tr>
+<td>Global Daemons</td>
+<td>/Library/LaunchDaemons</td>
+<td>root or the user specified with the key UserName</td>
+</tr>
+<tr>
+<td>System Agents</td>
+<td>/System/Library/LaunchAgents</td>
+<td>Currently logged in user</td>
+</tr>
+<tr>
+<td>System Daemons</td>
+<td>/System/Library/LaunchDaemons</td>
+<td>root or the user specified with the key UserName</td>
+</tr>
+</tbody>
+</table>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://www.launchd.info">https://www.launchd.info</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../Windows/oem-product-key/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../homebrew/bundle/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

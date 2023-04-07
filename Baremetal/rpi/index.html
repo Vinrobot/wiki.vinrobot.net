@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Baremetal/rpi/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Baremetal on Raspberry Pi - Wiki</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Baremetal on Raspberry Pi";
+        var mkdocs_page_input_path = "Baremetal/rpi.md";
+        var mkdocs_page_url = "/Baremetal/rpi/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Baremetal on Raspberry Pi</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#other">Other</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Docker/crossbuild/">Build multi-arch Docker images</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Linux/docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Linux/pxe-centos/">Install a complete PXE server</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Operating-Systems/macOS/launchd/">Launchd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../Operating-Systems/macOS/homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Baremetal &raquo;</li>
+      <li>Baremetal on Raspberry Pi</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Baremetal/rpi.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="links">Links</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/43358218/multicore-arm-assembly">https://stackoverflow.com/questions/43358218/multicore-arm-assembly</a></li>
+<li><a href="https://stackoverflow.com/questions/20055754/arm-start-wakeup-bringup-the-other-cpu-cores-aps-and-pass-execution-start-addre">https://stackoverflow.com/questions/20055754/arm-start-wakeup-bringup-the-other-cpu-cores-aps-and-pass-execution-start-addre</a></li>
+<li><a href="https://stackoverflow.com/questions/51862529/arm-bare-metal-multi-core-core-selection">https://stackoverflow.com/questions/51862529/arm-bare-metal-multi-core-core-selection</a></li>
+<li><a href="https://stackoverflow.com/questions/11894059/atomic-operations-in-arm">https://stackoverflow.com/questions/11894059/atomic-operations-in-arm</a></li>
+<li><a href="https://stackoverflow.com/questions/20111906/arm-assembly-inline-c-mutex-impelmentation">https://stackoverflow.com/questions/20111906/arm-assembly-inline-c-mutex-impelmentation</a></li>
+<li><a href="https://stackoverflow.com/questions/42698277/arm-cortex-m4-mutex-lock-dmb-instruction">https://stackoverflow.com/questions/42698277/arm-cortex-m4-mutex-lock-dmb-instruction</a></li>
+<li>
+<p><a href="https://stackoverflow.com/questions/49989123/atomicity-of-32bit-read-on-multicore-cpu">https://stackoverflow.com/questions/49989123/atomicity-of-32bit-read-on-multicore-cpu</a></p>
+</li>
+<li>
+<p><a href="https://raspberrypi.stackexchange.com/questions/39825/possible-to-do-bare-metal-programming-on-pi">https://raspberrypi.stackexchange.com/questions/39825/possible-to-do-bare-metal-programming-on-pi</a></p>
+</li>
+<li>
+<p><a href="https://github.com/dwelch67/raspberrypi/tree/ec6b9f1b6a2d38d56f0a4a43683db1be01280ae2/multi00">https://github.com/dwelch67/raspberrypi/tree/ec6b9f1b6a2d38d56f0a4a43683db1be01280ae2/multi00</a></p>
+</li>
+<li><a href="https://gist.github.com/hdznrrd/4032002">https://gist.github.com/hdznrrd/4032002</a></li>
+<li>
+<p><a href="https://github.com/payne92/bare-metal-arm/blob/master/MKL25Z4.h">https://github.com/payne92/bare-metal-arm/blob/master/MKL25Z4.h</a></p>
+</li>
+<li>
+<p><a href="https://wiki-archive.linaro.org/Resources/HowTo/Qemu-beagleboard">https://wiki-archive.linaro.org/Resources/HowTo/Qemu-beagleboard</a></p>
+</li>
+<li><a href="https://developer.arm.com/documentation/ddi0487/ga/">https://developer.arm.com/documentation/ddi0487/ga/</a></li>
+<li><a href="https://gitlab.com/cours-hefr/3e/ps5/-/tree/master">https://gitlab.com/cours-hefr/3e/ps5/-/tree/master</a></li>
+<li>
+<p><a href="https://github.com/synthetos/PiOCD/wiki/Using-a-Raspberry-Pi-as-a-JTAG-Dongle">https://github.com/synthetos/PiOCD/wiki/Using-a-Raspberry-Pi-as-a-JTAG-Dongle</a></p>
+</li>
+<li>
+<p><a href="http://www.doulos.com/knowhow/arm-embedded/implementing-semaphores-on-arm-processors/">http://www.doulos.com/knowhow/arm-embedded/implementing-semaphores-on-arm-processors/</a></p>
+</li>
+<li><a href="https://metebalci.com/blog/bare-metal-raspberry-pi-3b-jtag/">https://metebalci.com/blog/bare-metal-raspberry-pi-3b-jtag/</a></li>
+<li><a href="https://www.design-reuse.com/articles/38128/method-for-booting-arm-based-multi-core-socs.html">https://www.design-reuse.com/articles/38128/method-for-booting-arm-based-multi-core-socs.html</a></li>
+<li><a href="https://www.ti.com/lit/an/sprab27b/sprab27b.pdf?ts=1612430308678">https://www.ti.com/lit/an/sprab27b/sprab27b.pdf?ts=1612430308678</a></li>
+<li><a href="https://acpica.org/sites/acpica/files/MP%20Startup%20for%20ARM%20platforms.docx">https://acpica.org/sites/acpica/files/MP%20Startup%20for%20ARM%20platforms.docx</a></li>
+<li><a href="https://developer.arm.com/documentation/dht0008/a/arm-synchronization-primitives/practical-uses/implementing-a-mutex">https://developer.arm.com/documentation/dht0008/a/arm-synchronization-primitives/practical-uses/implementing-a-mutex</a></li>
+<li><a href="https://developer.arm.com/documentation/dht0008/a/arm-synchronization-primitives/practical-uses/power-saving-features?lang=en">https://developer.arm.com/documentation/dht0008/a/arm-synchronization-primitives/practical-uses/power-saving-features?lang=en</a></li>
+<li><a href="https://www.keil.com/support/docs/4063.htm">https://www.keil.com/support/docs/4063.htm</a></li>
+<li><a href="https://elixir.bootlin.com/linux/v3.5/source/kernel/lockdep.c#L3693">https://elixir.bootlin.com/linux/v3.5/source/kernel/lockdep.c#L3693</a></li>
+<li><a href="https://www.raspberrypi.org/documentation/configuration/device-tree.md#part3.1">https://www.raspberrypi.org/documentation/configuration/device-tree.md#part3.1</a></li>
+<li><a href="https://www.keil.com/support/man/docs/armasm/armasm_dom1361289880404.htm">https://www.keil.com/support/man/docs/armasm/armasm_dom1361289880404.htm</a></li>
+<li>
+<p><a href="https://balau82.wordpress.com/2010/02/28/hello-world-for-bare-metal-arm-using-qemu/">https://balau82.wordpress.com/2010/02/28/hello-world-for-bare-metal-arm-using-qemu/</a></p>
+</li>
+<li>
+<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=217581">https://www.raspberrypi.org/forums/viewtopic.php?t=217581</a></p>
+</li>
+<li><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=185264">https://www.raspberrypi.org/forums/viewtopic.php?t=185264</a></li>
+<li><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=72&amp;t=201556">https://www.raspberrypi.org/forums/viewtopic.php?f=72&amp;t=201556</a></li>
+<li>
+<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=106403">https://www.raspberrypi.org/forums/viewtopic.php?t=106403</a></p>
+</li>
+<li>
+<p><a href="https://github.com/rsta2/circle">https://github.com/rsta2/circle</a></p>
+</li>
+<li><a href="https://github.com/dwelch67/raspberrypi">https://github.com/dwelch67/raspberrypi</a></li>
+<li><a href="https://github.com/bztsrc/raspi3-tutorial">https://github.com/bztsrc/raspi3-tutorial</a></li>
+<li><a href="https://github.com/vanvught/rpidmx512/">https://github.com/vanvught/rpidmx512/</a></li>
+<li><a href="https://github.com/kawa-yoiko/AMPi">https://github.com/kawa-yoiko/AMPi</a></li>
+<li><a href="https://github.com/fbergama/pigfx">https://github.com/fbergama/pigfx</a></li>
+<li><a href="https://github.com/forkachild/NarcOS">https://github.com/forkachild/NarcOS</a></li>
+<li><a href="https://github.com/jameswalmsley/RaspberryPi-FreeRTOS">https://github.com/jameswalmsley/RaspberryPi-FreeRTOS</a></li>
+<li><a href="https://github.com/jameswalmsley/bitthunder">https://github.com/jameswalmsley/bitthunder</a></li>
+<li><a href="https://github.com/LdB-ECM/Raspberry-Pi">https://github.com/LdB-ECM/Raspberry-Pi</a></li>
+<li><a href="https://github.com/LdB-ECM/Raspberry-Pi-Multicore">https://github.com/LdB-ECM/Raspberry-Pi-Multicore</a></li>
+<li><a href="https://github.com/PicoCPP/RPI-pico-FreeRTOS">https://github.com/PicoCPP/RPI-pico-FreeRTOS</a></li>
+<li><a href="https://github.com/bitbank2/bbgfx">https://github.com/bitbank2/bbgfx</a></li>
+<li><a href="https://github.com/brianwiddas/pi-baremetal">https://github.com/brianwiddas/pi-baremetal</a></li>
+<li><a href="https://github.com/dwelch67/raspberrypi">https://github.com/dwelch67/raspberrypi</a></li>
+<li><a href="https://github.com/sokoide/rpi-baremetal">https://github.com/sokoide/rpi-baremetal</a></li>
+</ul>
+<h3 id="other">Other</h3>
+<ul>
+<li><a href="https://github.com/ag14774/Realview-PB-A8-Kernel">https://github.com/ag14774/Realview-PB-A8-Kernel</a></li>
+<li><a href="https://github.com/u-boot/u-boot">https://github.com/u-boot/u-boot</a></li>
+<li><a href="https://github.com/strawberryhacker/vanilla/blob/master/kernel/src/kernel/context.s">https://github.com/strawberryhacker/vanilla/blob/master/kernel/src/kernel/context.s</a></li>
+<li><a href="https://github.com/torvalds/linux/tree/master/include/linux">https://github.com/torvalds/linux/tree/master/include/linux</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../links/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../Docker/crossbuild/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
