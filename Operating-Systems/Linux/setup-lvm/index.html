@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/macOS/launchd/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/Linux/setup-lvm/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Launchd - Wiki</title>
+    <title>Setup LVM for Ubuntu - Wiki</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Launchd";
-        var mkdocs_page_input_path = "Operating-Systems/macOS/launchd.md";
-        var mkdocs_page_url = "/Operating-Systems/macOS/launchd/";
+        var mkdocs_page_name = "Setup LVM for Ubuntu";
+        var mkdocs_page_input_path = "Operating-Systems/Linux/setup-lvm.md";
+        var mkdocs_page_url = "/Operating-Systems/Linux/setup-lvm/";
       </script>
     
     <script src="../../../js/jquery-3.6.0.min.js" defer></script>
@@ -65,13 +65,19 @@
               </ul>
               <p class="caption"><span class="caption-text">Operating Systems</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Linux/docker-centos/">Install Docker</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Linux</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../docker-centos/">Install Docker</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Linux/pxe-centos/">Install a complete PXE server</a>
+                <li class="toctree-l2"><a class="reference internal" href="../pxe-centos/">Install a complete PXE server</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Linux/setup-lvm/">Setup LVM for Ubuntu</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Setup LVM for Ubuntu</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#setup-disk-partitions">Setup disk partitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-lvm">Setup LVM</a>
+    </li>
+    </ul>
                 </li>
     </ul>
                   </li>
@@ -87,15 +93,13 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">macOS</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Launchd</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../macOS/launchd/">Launchd</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="#">Homebrew</a>
     <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../homebrew/bundle/">Homebre Bundle</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../macOS/homebrew/bundle/">Homebre Bundle</a>
                 </li>
     </ul>
                 </li>
@@ -117,10 +121,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Operating Systems &raquo;</li>
-          <li>macOS &raquo;</li>
-      <li>Launchd</li>
+          <li>Linux &raquo;</li>
+      <li>Setup LVM for Ubuntu</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/macOS/launchd.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/Linux/setup-lvm.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -128,49 +132,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="job-definitions">Job Definitions</h1>
-<p>Job definitions crucial for the operation of the operating system are stored below /System/Library. You should never need to create a daemon or agent in these directories.</p>
-<p>Third-Party definitions which are relevant for every user are stored below /Library. Job definitions for a specific user are stored below the respective user's Library directory.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Location</th>
-<th>Run on behalf of</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>User Agents</td>
-<td>~/Library/LaunchAgents</td>
-<td>Currently logged in user</td>
-</tr>
-<tr>
-<td>Global Agents</td>
-<td>/Library/LaunchAgents</td>
-<td>Currently logged in user</td>
-</tr>
-<tr>
-<td>Global Daemons</td>
-<td>/Library/LaunchDaemons</td>
-<td>root or the user specified with the key UserName</td>
-</tr>
-<tr>
-<td>System Agents</td>
-<td>/System/Library/LaunchAgents</td>
-<td>Currently logged in user</td>
-</tr>
-<tr>
-<td>System Daemons</td>
-<td>/System/Library/LaunchDaemons</td>
-<td>root or the user specified with the key UserName</td>
-</tr>
-</tbody>
-</table>
-<h1 id="links">Links</h1>
+                <h1 id="setup-lvm-for-ubuntu">Setup LVM for Ubuntu</h1>
+<p>Ubuntu Desktop installer doesn't allow to create a LVM installation manually.
+Therefore you have to setup LVM before starting the installer (i.ex: using the Try Ubuntu option).</p>
+<p>We are assuming the disk is <code>/dev/nvme0n1</code>.</p>
+<h2 id="setup-disk-partitions">Setup disk partitions</h2>
+<p>1) Zero the partition table</p>
+<pre><code class="language-shell">$ sudo sgdisk -Z /dev/nvme0n1
+</code></pre>
+<p>2) Create partitions</p>
+<pre><code class="language-shell">$ sudo sgdisk -n 1:0:+512M -t 1:ef00 -c &quot;1:EFI System&quot; /dev/nvme0n1
+$ ls /dev/nvme0n1p1
+$ sudo sgdisk -n 2:0:0 -t 2:8e00 -c &quot;2:Linux LVM&quot; /dev/nvme0n1
+$ ls /dev/nvme0n1p2
+</code></pre>
+<p>Common partition types from <a href="https://wiki.archlinux.org/title/GPT_fdisk#Partition_type" target="_blank">archlinux wiki: GPT fdisk</a>:</p>
 <ul>
-<li><a href="https://www.launchd.info">https://www.launchd.info</a></li>
+<li><code>ef00</code>: EFI System</li>
+<li><code>8e00</code>: Linux LVM</li>
 </ul>
+<p>3) Format EFI partition</p>
+<pre><code class="language-shell">$ sudo mkfs.fat -F 32 /dev/nvme0n1p1
+</code></pre>
+<h2 id="setup-lvm">Setup LVM</h2>
+<p>1) Create a physical volume</p>
+<pre><code class="language-shell">$ sudo pvcreate /dev/nvme0n1p2
+</code></pre>
+<p>2) Create a volume group</p>
+<pre><code class="language-shell">$ sudo vgcreate vg0 /dev/nvme0n1p2
+</code></pre>
+<p>3) Create logical volumes</p>
+<pre><code class="language-shell">$ sudo lvcreate -Z y -L 1GB --name boot vg0
+$ sudo lvcreate -Z y -l 100%FREE --name root vg0
+</code></pre>
               
             </div>
           </div><footer>
@@ -199,10 +193,10 @@
         </span>
     
     
-      <span><a href="../../Windows/oem-product-key/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../pxe-centos/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../homebrew/bundle/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../VMware/esxi-installation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
