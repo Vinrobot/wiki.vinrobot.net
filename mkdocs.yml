@@ -7,4 +7,5 @@ theme:
   prev_next_buttons_location: none
 
 markdown_extensions:
+  attr_list:
   pymdownx.magiclink:
