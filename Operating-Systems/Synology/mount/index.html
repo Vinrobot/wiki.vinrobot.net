@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/VMware/esxi-installation/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/Operating-Systems/Synology/mount/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>ESXi Installation - Wiki</title>
+    <title>Mount Synology RAID - Wiki</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "ESXi Installation";
-        var mkdocs_page_input_path = "Operating-Systems/VMware/esxi-installation.md";
-        var mkdocs_page_url = "/Operating-Systems/VMware/esxi-installation/";
+        var mkdocs_page_name = "Mount Synology RAID";
+        var mkdocs_page_input_path = "Operating-Systems/Synology/mount.md";
+        var mkdocs_page_url = "/Operating-Systems/Synology/mount/";
       </script>
     
     <!--[if lt IE 9]>
@@ -74,21 +74,19 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" >Synology</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../Synology/debug/">Debug failing hardware</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Synology</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../debug/">Debug failing hardware</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../Synology/mount/">Mount Synology RAID</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Mount Synology RAID</a>
+    <ul class="current">
+    </ul>
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >VMware</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">ESXi Installation</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" >VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../VMware/esxi-installation/">ESXi Installation</a>
                 </li>
     </ul>
                   </li>
@@ -126,10 +124,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Operating Systems</li>
-          <li class="breadcrumb-item">VMware</li>
-      <li class="breadcrumb-item active">ESXi Installation</li>
+          <li class="breadcrumb-item">Synology</li>
+      <li class="breadcrumb-item active">Mount Synology RAID</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/VMware/esxi-installation.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/Operating-Systems/Synology/mount.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -137,21 +135,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="esxi">ESXi</h1>
-<h2 id="links">Links</h2>
+                <h1 id="mount-a-synology-raid">Mount a Synology RAID</h1>
 <ul>
-<li><a href="https://www.virtuallyghetto.com/2020/04/quick-tip-allow-unsupported-cpus-when-upgrading-to-esxi-7-0.html">https://www.virtuallyghetto.com/2020/04/quick-tip-allow-unsupported-cpus-when-upgrading-to-esxi-7-0.html</a></li>
-<li><a href="https://blog.monstermuffin.org/fixing-esxi-6-5-hpe-g7-servers/">https://blog.monstermuffin.org/fixing-esxi-6-5-hpe-g7-servers/</a></li>
-<li><a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.upgrade.doc/GUID-A4301ADA-8E02-459D-BF9D-0AD308DA5325.html">https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.upgrade.doc/GUID-A4301ADA-8E02-459D-BF9D-0AD308DA5325.html</a></li>
-<li><a href="https://www.vladan.fr/how-to-upgrade-esxi-6-0-to-6-5-via-cli-on-line/">https://www.vladan.fr/how-to-upgrade-esxi-6-0-to-6-5-via-cli-on-line/</a></li>
-</ul>
-<hr />
-<ul>
-<li>HPE<ul>
-<li>ESXi 7.0.0 U1 : <a href="https://my.vmware.com/en/group/vmware/downloads/details?downloadGroup=OEM-ESXI70U1-HPE&amp;productId=974">https://my.vmware.com/en/group/vmware/downloads/details?downloadGroup=OEM-ESXI70U1-HPE&amp;productId=974</a></li>
-</ul>
+<li>
+<p><a href="https://kb.synology.com/en-global/DSM/tutorial/How_can_I_recover_data_from_my_DiskStation_using_a_PC">How can I use a PC to recover data when my Synology NAS malfunctions?</a></p>
 </li>
-<li>ESXi 6.0.0 U3 : <a href="https://my.vmware.com/en/group/vmware/downloads/details?downloadGroup=OEM-ESXI60U3-HPE&amp;productId=491">https://my.vmware.com/en/group/vmware/downloads/details?downloadGroup=OEM-ESXI60U3-HPE&amp;productId=491</a></li>
+<li>
+<p><a href="https://old-releases.ubuntu.com/releases/18.04/">ubuntu-18.04-desktop-amd64.iso</a></p>
+</li>
 </ul>
               
             </div>
@@ -181,10 +172,10 @@
         </span>
     
     
-      <span><a href="../../Synology/mount/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../debug/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../Windows/oem-product-key/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../VMware/esxi-installation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
