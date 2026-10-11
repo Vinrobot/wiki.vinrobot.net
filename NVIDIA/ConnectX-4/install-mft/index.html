@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/NVIDIA/ConnectX-4/install-mft/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Install NVIDIA Firmware Tools - Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Install NVIDIA Firmware Tools";
+        var mkdocs_page_input_path = "NVIDIA/ConnectX-4/install-mft.md";
+        var mkdocs_page_url = "/NVIDIA/ConnectX-4/install-mft/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Baremetal/rpi/">Baremetal on Raspberry Pi</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Docker/crossbuild/">Build multi-arch Docker images</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NVIDIA</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >ConnectX 4</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Install NVIDIA Firmware Tools</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/pxe-centos/">Install a complete PXE server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/setup-lvm/">Setup LVM for Ubuntu</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Synology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Synology/debug/">Debug failing hardware</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Synology/mount/">Mount Synology RAID</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/macOS/launchd/">Launchd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../Operating-Systems/macOS/homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">NVIDIA</li>
+          <li class="breadcrumb-item">ConnectX 4</li>
+      <li class="breadcrumb-item active">Install NVIDIA Firmware Tools</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/NVIDIA/ConnectX-4/install-mft.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <ol>
+<li>
+<p>Install a RPM-based distro (e.g. RHEL)</p>
+</li>
+<li>
+<p>Download the latest <a href="https://network.nvidia.com/products/adapter-software/firmware-tools/">NVIDIA Firmware Tools</a></p>
+</li>
+</ol>
+<p>Example:</p>
+<p><img alt="MFT Download Center" src="../mft-downloads.png" /></p>
+<ol start="3">
+<li>Execute installer (install any required dependency)</li>
+</ol>
+<pre><code class="language-shell">$ sudo dnf install pciutils libibverbs kernel-devel
+</code></pre>
+<pre><code class="language-shell">$ sudo ./install.sh
+-I- Building the MFT kernel binary RPM...
+-I- Installing the MFT RPMs...
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:kernel-mft-4.37.0-154.6.12.0_211.################################# [100%]
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:mft-4.37.0-154                   ################################# [100%]
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:mft-autocomplete-4.37.0-154      ################################# [100%]
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:mft-mlx5-4.37.0-154              ################################# [100%]
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:mft-nvredfish-4.37.0-154         ################################# [100%]
+-I- In order to start mst, please run &quot;mst start&quot;.
+</code></pre>
+<ol start="4">
+<li>
+<p>Reboot</p>
+</li>
+<li>
+<p>Start the service</p>
+</li>
+</ol>
+<pre><code class="language-shell">$ sudo mst start
+</code></pre>
+<ol start="6">
+<li>Verify your devices are detected</li>
+</ol>
+<pre><code class="language-shell">$ sudo mst status
+MST modules:
+------------
+    MST PCI module is not loaded
+    MST PCI configuration module loaded
+
+MST devices:
+------------
+/dev/mst/mt4117_pciconf0         - PCI configuration cycles access.
+                                   domain:bus:dev.fn=0000:02:01.0 addr.reg=88 data.reg=92 cr_bar.gw_offset=-1
+                                   Chip revision is: 00
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../../FFmpeg/remove-segments/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../Operating-Systems/Linux/docker-centos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
