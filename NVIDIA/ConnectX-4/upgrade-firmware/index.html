@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://wiki.vinrobot.net/NVIDIA/ConnectX-4/upgrade-firmware/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Upgrade firmware - Wiki</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Upgrade firmware";
+        var mkdocs_page_input_path = "NVIDIA/ConnectX-4/upgrade-firmware.md";
+        var mkdocs_page_url = "/NVIDIA/ConnectX-4/upgrade-firmware/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Wiki
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../../links/">Useful Links</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Baremetal</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Baremetal/rpi/">Baremetal on Raspberry Pi</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Docker</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Docker/crossbuild/">Build multi-arch Docker images</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FFmpeg</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../FFmpeg/remove-segments/">Remove segments</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NVIDIA</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >ConnectX 4</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../install-mft/">Install NVIDIA Firmware Tools</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Upgrade firmware</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Operating Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/docker-centos/">Install Docker</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/pxe-centos/">Install a complete PXE server</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Linux/setup-lvm/">Setup LVM for Ubuntu</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Synology</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Synology/debug/">Debug failing hardware</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Synology/mount/">Mount Synology RAID</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >VMware</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/VMware/esxi-installation/">ESXi Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Windows</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/Windows/oem-product-key/">Retrieve Windows OEM Product Key</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >macOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../Operating-Systems/macOS/launchd/">Launchd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" >Homebrew</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../../Operating-Systems/macOS/homebrew/bundle/">Homebre Bundle</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Wiki</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">NVIDIA</li>
+          <li class="breadcrumb-item">ConnectX 4</li>
+      <li class="breadcrumb-item active">Upgrade firmware</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net/edit/master/docs/NVIDIA/ConnectX-4/upgrade-firmware.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><strong>This guide expects you to have a working RPM-based distro with the NVIDIA Firmware Tools installed.</strong></p>
+<p>See <a href="../install-mft/">Install NVIDIA Firmware Tools</a></p>
+<hr />
+<h1 id="download-the-latest-firmware">Download the latest firmware</h1>
+<ol>
+<li>Identify your MST device path</li>
+</ol>
+<pre><code class="language-shell">$ sudo mst status
+MST modules:
+------------
+    MST PCI module is not loaded
+    MST PCI configuration module loaded
+
+MST devices:
+------------
+/dev/mst/mt4117_pciconf0         - PCI configuration cycles access.
+                                   domain:bus:dev.fn=0000:02:01.0 addr.reg=88 data.reg=92 cr_bar.gw_offset=-1
+                                   Chip revision is: 00
+</code></pre>
+<p>The device path is <code>/dev/mst/mt4117_pciconf0</code>.</p>
+<ol start="2">
+<li>Identify your exact OPN (Orderable Part Number)</li>
+</ol>
+<pre><code class="language-shell">$ sudo flint -d /dev/mst/mt4117_pciconf0 query full
+Image type:            FS3
+FW Version:            14.32.1010
+FW Release Date:       1.12.2021
+Part Number:           MCX4121A-ACA_Ax
+Description:           ConnectX-4 Lx EN network interface card; 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6
+Product Version:       14.32.1010
+Rom Info:              type=UEFI version=14.25.17 cpu=AMD64,AARCH64
+                       type=PXE version=3.6.502 cpu=AMD64
+Description:           UID                GuidsNumber
+Base GUID:             946dae0300025593        4
+Base MAC:              946dae025593            4
+Image VSD:             N/A
+Device VSD:            N/A
+PSID:                  MT_2420110034
+Security Attributes:   N/A
+Default Update Method: fw_ctrl
+</code></pre>
+<p>The OPN is <code>MCX4121A-ACA</code>.<br/>
+The current firmware is <code>14.32.1010</code>.</p>
+<ol start="3">
+<li>Download the latest <a href="https://network.nvidia.com/support/firmware/connectx4lxen/">ConnectX-4 Lx Firmware</a> for your hardware</li>
+</ol>
+<p><img alt="ConnectX-4 Lx Ethernet Firmware Download Center" src="../firmware-downloads.png" /></p>
+<h1 id="backup-the-current-firmware">Backup the current firmware</h1>
+<ol>
+<li>Backup the current firmware and config</li>
+</ol>
+<pre><code class="language-shell">$ sudo flint -d /dev/mst/mt4117_pciconf0 query full &gt; flint_query.txt
+$ sudo flint -d /dev/mst/mt4117_pciconf0 hw query &gt; flint_hwinfo.txt
+$ sudo flint -d /dev/mst/mt4117_pciconf0 ri firmware_14.32.1010_1.12.2021_MCX4121A-ACA_Ax.bin
+$ sudo flint -d /dev/mst/mt4117_pciconf0 dc firmware_14.32.1010_1.12.2021_MCX4121A-ACA_Ax.ini
+$ sudo flint -d /dev/mst/mt4117_pciconf0 rrom rom_14.32.1010_1.12.2021_MCX4121A-ACA_Ax.bin
+</code></pre>
+<ol start="2">
+<li>Verify the firmware:</li>
+</ol>
+<pre><code class="language-shell">$ flint -i firmware_14.32.1010_1.12.2021_MCX4121A-ACA_Ax.bin query
+</code></pre>
+<h1 id="upgrade-the-firmware">Upgrade the firmware</h1>
+<ol>
+<li>Upload the firmware to the hardware</li>
+</ol>
+<pre><code class="language-shell">$ sudo flint -d /dev/mst/mt4117_pciconf0 -i fw-ConnectX4Lx-rel-14_32_1912-MCX4121A-ACA_Ax-UEFI-14.25.17-FlexBoot-3.6.502.bin burn
+</code></pre>
+<ol start="2">
+<li>
+<p>Reboot</p>
+</li>
+<li>
+<p>Verify</p>
+</li>
+</ol>
+<pre><code class="language-shell">$ sudo mst start
+$ sudo flint -d /dev/mst/mt4117_pciconf0 query full
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Vinrobot/wiki.vinrobot.net" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../install-mft/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../Operating-Systems/Linux/docker-centos/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
